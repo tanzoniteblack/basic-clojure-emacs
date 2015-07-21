@@ -26,9 +26,12 @@
                  (global-company-mode)))
 
 ;; clojure syntax support
+;; https://github.com/clojure-emacs/clojure-mode
 (use-package clojure-mode
   :ensure t)
 
+;; clojure IDE
+;; https://github.com/clojure-emacs/cider
 (use-package cider
   :ensure t
   :config (progn (add-hook 'clojure-mode-hook 'cider-mode)
@@ -36,6 +39,14 @@
                  (add-hook 'cider-repl-mode-hook 'subword-mode)
                  (setq cider-annotate-completion-candidates t
 					   cider-prompt-for-symbol nil)))
+
+;; clojure refactor library
+;; https://github.com/clojure-emacs/clj-refactor.el
+(use-package clj-refactor
+  :ensure t
+  :config (progn (setq cljr-suppress-middleware-warnings t)
+				 (add-hook 'clojure-mode-hook (lambda ()
+												(clj-refactor-mode 1)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Non-clojure specific nicities ;;

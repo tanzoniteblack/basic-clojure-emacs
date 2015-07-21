@@ -29,6 +29,24 @@
 ;; Non-clojure specific nicities ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; git wrapper / advanced in emacs git menu
+;; https://github.com/magit/magit
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status))
+
+;; project management/navigation
+;; https://github.com/bbatsov/projectile
+(use-package projectile
+  :ensure t
+  :config (projectile-global-mode))
+
+;; efficient navigating of viewable buffer
+;; https://github.com/abo-abo/avy
+(use-package avy
+  :ensure t
+  :bind ("C-c SPC" . avy-goto-word-1))
+
 ;; fuzzy autocompletion of emacs commands
 ;; https://github.com/nonsequitur/smex
 (use-package smex
@@ -36,15 +54,3 @@
   :config (smex-initialize)
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)))
-
-;; git wrapper / advanced in emacs git menu
-;; https://github.com/magit/magit
-(use-package magit
-  :ensure t
-  :bind ("C-x g" . magit-status))
-
-;; efficient navigating of viewable buffer
-;; https://github.com/abo-abo/avy
-(use-package avy
-  :ensure t
-  :bind ("C-c SPC" . avy-goto-word-1))

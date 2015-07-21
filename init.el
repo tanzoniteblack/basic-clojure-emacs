@@ -16,7 +16,7 @@
 ;; clojure dev environment ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; company-mode is a modern auto-completion tool
+;; modern auto-completion tool
 ;; http://company-mode.github.io/
 (use-package company
   :ensure t
@@ -24,6 +24,18 @@
                  (bind-key "C-n" 'company-select-next company-active-map)
                  (bind-key "C-p" 'company-select-previous company-active-map)
                  (global-company-mode)))
+
+;; clojure syntax support
+(use-package clojure-mode
+  :ensure t)
+
+(use-package cider
+  :ensure t
+  :config (progn (add-hook 'clojure-mode-hook 'cider-mode)
+                 (add-hook 'clojure-mode-hook 'cider-turn-on-eldoc-mode)
+                 (add-hook 'cider-repl-mode-hook 'subword-mode)
+                 (setq cider-annotate-completion-candidates t
+					   cider-prompt-for-symbol nil)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Non-clojure specific nicities ;;

@@ -81,7 +81,7 @@
   :ensure t
   :bind ("C-c SPC" . avy-goto-word-1))
 
-;; fuzzy autocompletion of emacs commands
+;; fuzzy autocompletion of emacs commands (better M-x)
 ;; https://github.com/nonsequitur/smex
 (use-package smex
   :ensure t

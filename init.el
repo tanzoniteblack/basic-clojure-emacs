@@ -12,9 +12,9 @@
 ;; Only need to load use-package when compiling
 (require 'use-package)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Actually start loading desired packages and configuration                  ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; clojure dev environment ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; company-mode is a modern auto-completion tool
 ;; http://company-mode.github.io/
@@ -24,6 +24,10 @@
                  (bind-key "C-n" 'company-select-next company-active-map)
                  (bind-key "C-p" 'company-select-previous company-active-map)
                  (global-company-mode)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Non-clojure specific nicities ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; fuzzy autocompletion of emacs commands
 ;; https://github.com/nonsequitur/smex
@@ -38,3 +42,9 @@
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status))
+
+;; efficient navigating of viewable buffer
+;; https://github.com/abo-abo/avy
+(use-package avy
+  :ensure t
+  :bind ("C-c SPC" . avy-goto-word-1))

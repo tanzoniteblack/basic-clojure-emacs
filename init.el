@@ -39,9 +39,9 @@
                  (add-hook 'clojure-mode-hook (lambda ()
                                                 (clj-refactor-mode 1)))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Non-clojure specific niceties ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Non-clojure specific things, highly recommended ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; modern auto-completion tool
 ;; http://company-mode.github.io/
@@ -62,6 +62,10 @@
                  (show-smartparens-global-mode t)
                  (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
                  (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; non-clojure dev nicities ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; git wrapper / advanced in emacs git menu
 ;; https://github.com/magit/magit

@@ -16,15 +16,6 @@
 ;; clojure dev environment ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; modern auto-completion tool
-;; http://company-mode.github.io/
-(use-package company
-  :ensure t
-  :config (progn (setq company-idle-delay .2)
-                 (bind-key "C-n" 'company-select-next company-active-map)
-                 (bind-key "C-p" 'company-select-previous company-active-map)
-                 (global-company-mode)))
-
 ;; clojure syntax support
 ;; https://github.com/clojure-emacs/clojure-mode
 (use-package clojure-mode
@@ -49,8 +40,28 @@
 												(clj-refactor-mode 1)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Non-clojure specific nicities ;;
+;; Non-clojure specific niceties ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; modern auto-completion tool
+;; http://company-mode.github.io/
+(use-package company
+  :ensure t
+  :config (progn (setq company-idle-delay .2)
+                 (bind-key "C-n" 'company-select-next company-active-map)
+                 (bind-key "C-p" 'company-select-previous company-active-map)
+                 (global-company-mode)))
+
+;; parenthesis/brackets balancing and navigating
+;; https://github.com/Fuco1/smartparens
+(use-package smartparens
+  :ensure t
+  :config (progn (require 'smartparens-config)
+				 (smartparens-global-mode t)
+				 ;; highlight matching pairs
+				 (show-smartparens-global-mode t)
+				 (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+				 (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)))
 
 ;; git wrapper / advanced in emacs git menu
 ;; https://github.com/magit/magit

@@ -29,15 +29,15 @@
                  (add-hook 'clojure-mode-hook 'cider-turn-on-eldoc-mode)
                  (add-hook 'cider-repl-mode-hook 'subword-mode)
                  (setq cider-annotate-completion-candidates t
-					   cider-prompt-for-symbol nil)))
+                       cider-prompt-for-symbol nil)))
 
 ;; clojure refactor library
 ;; https://github.com/clojure-emacs/clj-refactor.el
 (use-package clj-refactor
   :ensure t
   :config (progn (setq cljr-suppress-middleware-warnings t)
-				 (add-hook 'clojure-mode-hook (lambda ()
-												(clj-refactor-mode 1)))))
+                 (add-hook 'clojure-mode-hook (lambda ()
+                                                (clj-refactor-mode 1)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Non-clojure specific niceties ;;
@@ -57,11 +57,11 @@
 (use-package smartparens
   :ensure t
   :config (progn (require 'smartparens-config)
-				 (smartparens-global-mode t)
-				 ;; highlight matching pairs
-				 (show-smartparens-global-mode t)
-				 (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
-				 (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)))
+                 (smartparens-global-mode t)
+                 ;; highlight matching pairs
+                 (show-smartparens-global-mode t)
+                 (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+                 (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)))
 
 ;; git wrapper / advanced in emacs git menu
 ;; https://github.com/magit/magit
@@ -88,3 +88,23 @@
   :config (smex-initialize)
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)))
+
+;; semi-fuzzy file finding (better find-file and autocompletion)
+;; http://emacswiki.org/emacs/InteractivelyDoThings
+(use-package ido
+  :ensure t
+  :config (progn (setq
+                  ;; Match letters in order throughout string, not just prefix
+                  ido-enable-prefix nil
+                  ;; Be able to create new buffers without complaint
+                  ido-create-new-buffer 'always
+                  ;; Use ido where ever possible
+                  ido-everywhere 1
+                  ;; if exact match not found, look for other files containing these characters
+                  ido-enable-flex-matching t
+                  ;; don't leave the current directory if we don't find the file we typed
+                  ido-auto-merge-work-directories-length -1)
+                 ;; Show available completions in the minibuffer automatically
+                 (icomplete-mode 1)
+                 ;; Turn on ido-mode
+                 (ido-mode t)))

@@ -63,7 +63,7 @@
                  (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; non-clojure dev nicities ;;
+;; non-clojure dev niceties ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; git wrapper / advanced in emacs git menu

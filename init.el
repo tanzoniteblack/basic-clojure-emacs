@@ -9,7 +9,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Only need to load use-package when compiling
 (require 'use-package)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

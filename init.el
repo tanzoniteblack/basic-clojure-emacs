@@ -38,6 +38,22 @@
                  (add-hook 'clojure-mode-hook (lambda ()
                                                 (clj-refactor-mode 1)))))
 
+;; show build errors and linting in place in buffer
+;; http://www.flycheck.org/
+;; Clojure specific library:
+;; https://github.com/clojure-emacs/squiggly-clojure
+(use-package flycheck
+  :ensure t
+  :config (progn (use-package flycheck-clojure                       ; load clojure specific flycheck features
+                   :ensure t
+                   :config (flycheck-clojure-setup))
+                 ;; don't clobber eldoc messages
+                 (use-package flycheck-pos-tip
+                   :ensure t)
+                 (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages)
+                 ;; initialize flycheck
+                 (global-flycheck-mode)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Non-clojure specific things, highly recommended ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

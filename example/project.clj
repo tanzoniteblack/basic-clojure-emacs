@@ -5,8 +5,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]])
 
-n
 (comment 
+  ;; first start a repl with C-c M-j (cider-jack-in)
   ;; lets start by jumping to a more interesting file:
   ;; projectile takes the mental overhead away form this
   ;; just try and remember some part of the file name.

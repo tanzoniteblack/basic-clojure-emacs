@@ -1,5 +1,4 @@
-(ns example.core
-  (:require [example.util :as util]))
+(ns example.core)
 
 (defn foo
   "I don't do a whole lot."
@@ -10,5 +9,5 @@
 ;; and type example.util :refer [bar]
 ;; then tab to return here
 
-(bar 8) ;; where else is this function used? C-c C-m f u (cljr-find-usages)
-;; that's "find usages" (unless your're mad at the function )
+(util/bar 8) ;; where else is this function used? C-c C-m f u (cljr-find-usages)
+;-) that's "find usages" (unless your're mad at the function)

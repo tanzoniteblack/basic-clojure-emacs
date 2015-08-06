@@ -10,6 +10,7 @@ example/*.jar
 example/*.class
 example/.lein-*
 example/.nrepl-port
+example/smex-items
 example/.hgignore
 example/.hg/
 auto-save-list/

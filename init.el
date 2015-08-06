@@ -18,7 +18,9 @@
 ;; clojure syntax support
 ;; https://github.com/clojure-emacs/clojure-mode
 (use-package clojure-mode
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook 'yas-minor-mode))
 
 ;; clojure IDE
 ;; https://github.com/clojure-emacs/cider

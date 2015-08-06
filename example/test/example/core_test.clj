@@ -8,7 +8,5 @@
   (testing "FIXME, I fail."
     (is (= 0 1)))
   (testing "Squiggly clojure highlights common testing errors"
-    ;; forgot `is`
     (= "cat" "dog")
-    ;; Equals with 1 arg is always true
     (is (= "cat"))))

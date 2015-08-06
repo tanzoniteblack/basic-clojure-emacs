@@ -47,11 +47,15 @@
 ;; https://github.com/clojure-emacs/squiggly-clojure
 (use-package flycheck
   :ensure t
-  :config (progn (use-package flycheck-clojure                       ; load clojure specific flycheck features
+  :config (progn (use-package flycheck-clojure ; load clojure specific flycheck features
                    :ensure t
                    :config (flycheck-clojure-setup))
+		 ;; initialize flycheck
+		 (use-package popup
+                   :ensure t)
+                 (use-package flycheck-pos-tip
+                   :ensure t)
                  (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages)
-                 ;; initialize flycheck
                  (global-flycheck-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -127,3 +131,4 @@
                  (icomplete-mode 1)
                  ;; Turn on ido-mode
                  (ido-mode t)))
+

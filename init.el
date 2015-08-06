@@ -48,9 +48,6 @@
   :config (progn (use-package flycheck-clojure                       ; load clojure specific flycheck features
                    :ensure t
                    :config (flycheck-clojure-setup))
-                 ;; don't clobber eldoc messages
-                 (use-package flycheck-pos-tip
-                   :ensure t)
                  (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages)
                  ;; initialize flycheck
                  (global-flycheck-mode)))
